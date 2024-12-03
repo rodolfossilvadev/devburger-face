@@ -1,24 +1,15 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: 'https://devburgerapi.onrender.com'
+    baseURL: 'http://localhost:3001'
 });
 
 api.interceptors.request.use((config) => {
     const userData = localStorage.getItem('devburger:userData');
+
     const token = userData && JSON.parse(userData).token;
 
-    if (token) {
-        config.headers.authorization = `Bearer ${token}`;
-    }
+    config.headers.authorization = `Bearer ${token}`;
 
     return config;
 });
-
-api.interceptors.response.use(
-    (response) => response,
-    (error) => {
-        console.error('Erro da API:', error.response || error.message);
-        return Promise.reject(error);
-    }
-);
