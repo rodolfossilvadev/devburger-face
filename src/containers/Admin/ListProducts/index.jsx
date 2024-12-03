@@ -14,7 +14,7 @@ import { DisabledByDefault } from "@mui/icons-material";
 import paths from "../../../Constants/paths.js";
 import { useNavigate } from "react-router-dom";
 import TrashIcon from '../../../assets/trash.svg';
-import { toast } from "react-toastify"; // Importando o toast
+import { toast } from "react-toastify";
 
 function ListProducts() {
     const [products, setProducts] = useState([]);
