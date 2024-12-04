@@ -109,6 +109,7 @@ function NewProduct() {
                                 getOptionLabel={cat => cat.name}
                                 getOptionValue={cat => cat.id}
                                 placeholder="Categorias"
+                                menuPortalTarget={document.body}
                             />
                         )}
                     />
