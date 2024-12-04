@@ -36,13 +36,13 @@ Backend: Node.js com os bancos Mongodb e Postgres.
 
 
 
-Vídeo do projeto
+Vídeo do projeto:
 <br/>
 
 <a href="https://github.com/user-attachments/assets/f4b7faf9-0327-48dd-80a0-d3a6a2e562b1" target="_blank">Clique aqui</a> para acessar a video de Usuário
 <br/>
 
-Vídeo de Admin
+Vídeo de Admin:
 <br/>
 
 <a href="https://github.com/user-attachments/assets/61c55767-2b17-497e-b47b-e1f1f72724d4" target="_blank">Clique aqui</a> para acessar a video de Admin
