@@ -1,4 +1,3 @@
-# DevBurger 🍔
 <div align="center" display="inline_block">
   <img src='./src/assets/logo.svg'/>
 </div>
