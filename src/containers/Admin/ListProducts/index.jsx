@@ -78,7 +78,7 @@ function ListProducts() {
                                         {product.name}
                                     </TableCell>
                                     <TableCell>{formatPrice(product.price)}</TableCell>
-                                    <TableCell align="center">{isOffer(product.offer)}</TableCell>
+                                    <TableCell>{isOffer(product.offer)}</TableCell>
                                     <TableCell>
                                         <ImgProduct src={product.url} alt="imagem-produto" />
                                     </TableCell>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ReactSelect from "react-select";
-import { Container, InputProduct, Label, ButtonStyle, LabelUpload } from "./styles.js";
+import { Container, InputProduct, Label, ButtonStyle, LabelUpload, ContainerInput } from "./styles.js";
 import { api } from "../../../services/api.js";
 import { useForm, Controller } from "react-hook-form";
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
@@ -10,11 +10,9 @@ import { ErrorMessage } from "../../../components/index.js";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-
-
 function NewProduct() {
-    const [fileName, setFileName] = useState(null)
-    const [categories, setCategories] = useState([])
+    const [fileName, setFileName] = useState(null);
+    const [categories, setCategories] = useState([]);
 
     const navigate = useNavigate();
 
@@ -23,51 +21,45 @@ function NewProduct() {
         price: Yup.string().required('Digite o preço do produto'),
         category: Yup.object().required('Escolha uma categoria'),
         file: Yup.mixed().test('required', 'Carregue um arquivo', value => {
-            return value?.length > 0
+            return value?.length > 0;
         }).test('fileSize', 'Carregue arquivos de ate 2mb', value => {
-            return value[0]?.size < 2000000
+            return value[0]?.size < 2000000;
         }).test('type', 'Carregue apenas arquivos png ou jpeg', value => {
-            return value[0]?.type === 'image/png' || value[0]?.type === 'image/jpeg'
-        })
-    })
+            return value[0]?.type === 'image/png' || value[0]?.type === 'image/jpeg';
+        }),
+        offer: Yup.bool(),
+    });
 
-    const { register,
-        handleSubmit,
-        control,
-        formState: { errors }
-    } = useForm({
+    const { register, handleSubmit, control, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
 
-
     const onSubmit = async data => {
-        const productDataFormData = new FormData()
+        const productDataFormData = new FormData();
         productDataFormData.append('name', data.name);
         productDataFormData.append('price', data.price);
         productDataFormData.append('category_id', data.category.id);
         productDataFormData.append('file', data.file[0]);
-
+        productDataFormData.append('offer', data.offer);
 
         await toast.promise(api.post('products', productDataFormData), {
             pending: 'Criando novo produto...',
             success: 'Produto criado com sucesso',
             error: 'Falha ao criar produto',
+        });
 
-        })
         setTimeout(() => {
             navigate('/listar-produtos');
         }, 2000);
-    }
+    };
 
     useEffect(() => {
         async function loadCategories() {
             const { data } = await api.get('/categories');
-            setCategories(data)
+            setCategories(data);
         }
         loadCategories();
     }, []);
-
-
 
     return (
         <Container>
@@ -77,16 +69,16 @@ function NewProduct() {
                 <div>
                     <Label>Nome</Label>
                     <InputProduct type="text" {...register("name")} />
-                    <ErrorMessage >{errors.name?.message}</ErrorMessage>
+                    <ErrorMessage>{errors.name?.message}</ErrorMessage>
                 </div>
-                <div>
 
+                <div>
                     <Label>Preço</Label>
                     <InputProduct type="number" {...register("price")} />
-                    <ErrorMessage >{errors.price?.message}</ErrorMessage>
+                    <ErrorMessage>{errors.price?.message}</ErrorMessage>
                 </div>
-                <div>
 
+                <div>
                     <LabelUpload>
                         {fileName || (
                             <>
@@ -99,38 +91,42 @@ function NewProduct() {
                             accept="image/png, image/jpeg"
                             {...register("file")}
                             onChange={value => {
-                                setFileName(value.target.files[0]?.name)
+                                setFileName(value.target.files[0]?.name);
                             }}
                         />
                     </LabelUpload>
-                    <ErrorMessage >{errors.file?.message}</ErrorMessage>
+                    <ErrorMessage>{errors.file?.message}</ErrorMessage>
                 </div>
-                <div>
 
+                <div>
                     <Controller
                         name="category"
                         control={control}
-                        render={({ field }) => {
+                        render={({ field }) => (
+                            <ReactSelect
+                                {...field}
+                                options={categories}
+                                getOptionLabel={cat => cat.name}
+                                getOptionValue={cat => cat.id}
+                                placeholder="Categorias"
+                            />
+                        )}
+                    />
+                    <ErrorMessage>{errors.category?.message}</ErrorMessage>
 
-                            return (
-                                <ReactSelect
-                                    {...field}
-                                    options={categories}
-                                    getOptionLabel={cat => cat.name}
-                                    getOptionValue={cat => cat.id}
-                                    placeholder="Categorias"
-                                />
-                            )
-                        }}
-                    >
-
-                    </Controller>
-                    <ErrorMessage >{errors.category?.message}</ErrorMessage>
+                    <ContainerInput>
+                        <input
+                            type="checkbox"
+                            {...register("offer")}
+                        />
+                        <Label>Produto em oferta?</Label>
+                    </ContainerInput>
                 </div>
 
                 <ButtonStyle>Adicionar Produto</ButtonStyle>
             </form>
         </Container>
-    )
+    );
 }
-export default NewProduct
+
+export default NewProduct;
