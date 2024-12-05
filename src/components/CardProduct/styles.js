@@ -46,7 +46,7 @@ export const Container = styled.div`
 export const CardImage = styled.img`
     height: 100px;
     position: absolute;
-    top: -50px; // Adjust this based on how much overlap you want
+    top: -50px; 
 `;
 
 
