@@ -1067,6 +1067,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@phosphor-icons/react@npm:^2.1.7":
+  version: 2.1.7
+  resolution: "@phosphor-icons/react@npm:2.1.7"
+  peerDependencies:
+    react: ">= 16.8"
+    react-dom: ">= 16.8"
+  checksum: 10c0/8e5c42056f606c5efdfa113174de4c312a084b1ca117262f9bb3063cb68ec58fa9e4ebb414d99372213a23924e064add34bcc917177b2f092f42e90c683e0dbd
+  languageName: node
+  linkType: hard
+
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
@@ -1957,6 +1967,7 @@ __metadata:
     "@mui/material": "npm:^6.1.6"
     "@mui/styled-engine-sc": "npm:^6.1.6"
     "@mui/x-data-grid": "npm:^7.22.2"
+    "@phosphor-icons/react": "npm:^2.1.7"
     "@stripe/react-stripe-js": "npm:^2.8.1"
     "@stripe/stripe-js": "npm:^4.9.0"
     "@types/react": "npm:^18.3.10"

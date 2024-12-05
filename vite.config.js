@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   build: {
@@ -12,6 +11,11 @@ export default defineConfig({
   },
   optimizeDeps: {
     exclude: ['@emotion/react', 'styled-components'],
+  },
+  resolve: {
+    alias: {
+      '@phosphor-icons/react': '@phosphor-icons/react',
+    },
   },
   logLevel: 'info',
 });
