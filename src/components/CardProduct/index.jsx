@@ -1,9 +1,8 @@
 import PropTypes from "prop-types";
-import { CardImage, Container } from "./styles.js";
+import { CardImage, Container, InfoContainer } from "./styles.js";
 import { CartButton } from "../CartButton";
 import { useCart } from "../../hooks/CartContext.jsx";
 import { toast } from "react-toastify";
-import { Heart, Star } from "@phosphor-icons/react";
 
 export function CardProduct({ product }) {
     const { putProductInCart } = useCart();
@@ -15,13 +14,12 @@ export function CardProduct({ product }) {
 
     return (
         <Container>
-
             <CardImage src={product.url} alt={product.name} />
 
-            <div>
+            <InfoContainer>
                 <p>{product.name}</p>
                 <strong>{product.currencyValue}</strong>
-            </div>
+            </InfoContainer>
 
             <CartButton onClick={handleAddToCart} />
         </Container>
