@@ -6,11 +6,10 @@ export const api = axios.create({
 
 api.interceptors.request.use((config) => {
     const userData = localStorage.getItem('devburger:userData');
-    const token = userData && JSON.parse(userData).token;
 
-    if (!config.url.startsWith('/product-file') && !config.url.startsWith('/category-file')) {
-        config.headers.authorization = `Bearer ${token}`;
-    }
+    const token = userData && JSON.parse(userData).token
+
+    config.headers.authorization = `Bearer ${token}`;
 
     return config;
-});
+})
