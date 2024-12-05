@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { CardImage, Container, InfoContainer } from "./styles.js";
+import { CardImage, Container } from "./styles.js";
 import { CartButton } from "../CartButton";
 import { useCart } from "../../hooks/CartContext.jsx";
 import { toast } from "react-toastify";
@@ -16,10 +16,10 @@ export function CardProduct({ product }) {
         <Container>
             <CardImage src={product.url} alt={product.name} />
 
-            <InfoContainer>
+            <div>
                 <p>{product.name}</p>
                 <strong>{product.currencyValue}</strong>
-            </InfoContainer>
+            </div>
 
             <CartButton onClick={handleAddToCart} />
         </Container>
