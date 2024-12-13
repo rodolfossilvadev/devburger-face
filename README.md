@@ -2,7 +2,7 @@
   <img src='./src/assets/logo.svg' height="200"/>
 </div>
 Tecnologias utilizadas:
- Frontend
+-> Frontend
 <div display="flex">
   <br>
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="logo">
@@ -14,7 +14,7 @@ Tecnologias utilizadas:
 
 </div>
 
- Backend
+<- Backend
 <div display="flex">
   <img src="https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png" width="50" height="50">
   <img src="https://user-images.githubusercontent.com/25181517/117208740-bfb78400-adf5-11eb-97bb-09072b6bedfc.png" width="50" height="50">
@@ -27,9 +27,9 @@ Um projeto robusto que trás um pouco da pratica no mercado de trabalho.
 
 O DevBurger é uma plataforma que oferece uma interface completa para os clientes com autenticação e gerenciamento de clientes e administradores, para que cada usuário tenha acesso adequado, além de possibilitar um acompanhamento para o administrador do negocio com funções de editar e adicionar novos produtos e acompanhar todos os pedidos.
 
-Frontend: React.js com Styled Components.
+--> Frontend: React.js com Styled Components.
 
-Backend: Node.js com os bancos Mongodb e Postgres.
+<-- Backend: Node.js com os bancos Mongodb e Postgres.
 <br/>
 
 
