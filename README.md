@@ -2,6 +2,7 @@
   <img src='./src/assets/logo.svg' height="200"/>
 </div>
 Tecnologias utilizadas:
+<br>
 -> Frontend
 <div display="flex">
   <br>
