@@ -1,5 +1,5 @@
 <div align="center" display="inline_block">
-  <img src='./src/assets/logo.svg'/>
+  <img src='./src/assets/logo.svg' height="300"/>
 </div>
 Tecnologias utilizadas:
  Frontend
